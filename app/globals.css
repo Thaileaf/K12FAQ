@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add this to your CSS */
+/* Accordians for MDB package was not working, so added important */
+.collapse.show {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -19,3 +27,27 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.react-chatbot-kit-chat-input-container {
+  display: none;
+}
+
+.react-chatbot-kit-chat-input {
+  display: none;
+}
+
+.react-chatbot-kit-chat-input-form {
+  padding: 15px;
+  margin: 0px;
+  display: none;
+}
+
+
+.react-chatbot-kit-chat-input::placeholder {
+  display: none;
+}
+
+.react-chatbot-kit-chat-btn-send {
+  display: none;
+}
+

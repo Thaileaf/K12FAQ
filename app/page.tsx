@@ -1,8 +1,60 @@
+// "use client" // TODO: Convert page to SSR and chatbot to client side
 import Image from "next/image";
+import 'react-chatbot-kit/build/main.css'
 
-export default function Home() {
+// import config from './chatbot/config';
+// import MessageParser from './chatbot/Messageparser';
+// import ActionProvider from './chatbot/ActionProvider';
+import ChatbotWrapper from "@/app/components/chatbotAsync/chatbotAsync";
+
+// import { ChatbotTree, TreeData, TreeNode } from './chatbot/ntree'
+import AccordianComponent from "@/app/components/accordian"
+
+
+const DEFAULT_DATA = {
+  content: "Welcome to K12 Center, what would you like to know about",
+  choices: {
+    programs: {
+      content: "Programs\nPrograms at K12...",
+      choices: {
+        sponsorship1: {
+          content: "Sponsorships\nMaybe...",
+          choices: {
+            testing1: { content: "Testing\nTesting" },
+            testing2: { content: "Testing\nTesting" }
+          }
+        }
+      }
+    },
+    cost: {
+      content: "Cost\nA lot....",
+      choices: {
+        whatever1: { content: "Whatever" },
+        whatever2: { content: "Whatever" }
+      }
+    }
+  }
+};
+
+export default async function Home() {
+
+  let data = DEFAULT_DATA;
+  const url = 'http://127.0.0.1:5000/data'
+  try {
+    const res = await fetch(url);
+    data = await res.json()
+    data = data.data;
+  }
+  catch (e) {
+    console.log(e);
+  }
+
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <p>test</p>
+      <ChatbotWrapper data={data}/>
+      <AccordianComponent/>
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"

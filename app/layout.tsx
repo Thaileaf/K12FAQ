@@ -1,6 +1,10 @@
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+// import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./globals.css";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,10 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
+    <head>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    </head>
+    <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    >
+    {children}
       </body>
     </html>
   );
