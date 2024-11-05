@@ -14,6 +14,16 @@ const resources = {
         translation: {
             "Welcome to React": "Bienvenue à React et K12"
         }
+    },
+    es: {
+        translation: {
+            "Welcome to React": "Bienvenidos a K-12"
+        }
+    },
+    zhcn: {
+        translation: {
+            "Welcome to React": "欢迎来到K-12"
+        }
     }
 };
 

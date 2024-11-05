@@ -18,17 +18,23 @@ export default function AccordianComponent() {
                     <MDBAccordionItem collapseId={1} headerTitle="WHEN & HOW DO I APPLY?">
                         <p>You can now register for an <strong>NYU ID number</strong> and apply for Summer Housing. Please follow the  step-by-step instructions on our How-to-Apply  page in order to complete the housing application  correctly, including inputting your Group Name  and Authorization Code. This will ensure that you  correctly fill out the application and affiliate yourself with your group. Once you have completed all  steps, your housing is secured.  </p>
                     </MDBAccordionItem>
-                    <MDBAccordionItem collapseId={2} headerTitle="Question #2">
+                    <MDBAccordionItem collapseId={2} headerTitle="Change the language">
                         <button style={{backgroundColor:"lightblue", borderStyle:"solid", borderWidth:"thick"}} onClick={() => {
                             if(i18n.language == "en") {
                                 i18n.changeLanguage('fr')
                             }
+                            else if(i18n.language == "fr") {
+                                i18n.changeLanguage('es')
+                            }
+                            else if(i18n.language == "es") {
+                                i18n.changeLanguage('zhcn')
+                            }
                             else {
                                 i18n.changeLanguage('en')
                             }
-                        }}>Change language
+                        }}>Change language.
                         </button>
-
+                        <strong>Current language: {i18n.language}</strong>
                         <p>{t('Welcome to React')}</p>
                     </MDBAccordionItem>
                     <MDBAccordionItem collapseId={3} headerTitle="Question #3">
